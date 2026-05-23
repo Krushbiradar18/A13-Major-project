@@ -4,7 +4,6 @@ import trimesh
 from PIL import Image
 from flask import Blueprint, request, send_file, abort, Response, jsonify
 from datetime import datetime
-
 from .auth import get_current_user
 from .extensions import db
 from .models import Artwork
@@ -179,7 +178,6 @@ def make_glb():
             status=500,
         )
 
-
 @artworks_bp.route("/artwork/<int:artwork_id>/image")
 def artwork_image(artwork_id):
     art = Artwork.query.get_or_404(artwork_id)
@@ -267,7 +265,6 @@ def seller_artworks():
 
     } for a in artworks])
 
-
 @artworks_bp.route("/api/artwork/<int:artwork_id>", methods=["PUT"])
 def update_artwork(artwork_id):
     try:
@@ -292,7 +289,6 @@ def update_artwork(artwork_id):
             artwork.medium = data["medium"].strip()
         if "style" in data:
             artwork.style = data["style"].strip()
-
         db.session.commit()
 
         return jsonify({

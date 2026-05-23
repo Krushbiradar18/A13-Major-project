@@ -31,11 +31,11 @@ COPY . .
 RUN mkdir -p /app/db && chmod 755 /app/db
 
 # Expose the port that the app runs on
-EXPOSE 7861
+EXPOSE 5000
 
 # Create a non-root user for security
 RUN useradd -m -u 1000 appuser && chown -R appuser:appuser /app
 USER appuser
 
 # Use gunicorn for production deployment
-CMD ["gunicorn", "--bind", "0.0.0.0:7861", "--workers", "2", "--timeout", "120", "app:app"]
+CMD ["gunicorn", "--bind", "0.0.0.0:5000", "--workers", "2", "--timeout", "120", "wsgi:app"]

@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import SharedHeader from '@/components/ui/sharedHeader';
+import SharedHeader from '@/components/ui/SharedHeader';
 import '../css/Seller.css';
-import '../css/sharedHeader.css';
+import '../css/SharedHeader.css';
 
 const API_BASE = '';
 

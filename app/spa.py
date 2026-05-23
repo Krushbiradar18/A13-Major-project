@@ -4,7 +4,6 @@ from .auth import get_current_user, login_required
 from .config import basedir
 
 spa_bp = Blueprint("spa", __name__)
-
 def _spa_index_path():
     return os.path.join(basedir, "frontend", "dist", "index.html")
 
